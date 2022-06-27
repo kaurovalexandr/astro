@@ -28,8 +28,10 @@ public class App {
         System.out.println("информация о дате рождения");
         InfoAboutBirthday infoAboutBirthday = AstroСalculator.getBirthday(birthday);
         infoAboutBirthday.getTable().forEach((x,y)->
-                System.out.println(x+"\t"+y));
-
+                System.out.print(x+"\t"));
+        System.out.println();
+        infoAboutBirthday.getTable().forEach((x,y)->
+                System.out.print(y+"\t"));
     }
 
 }
