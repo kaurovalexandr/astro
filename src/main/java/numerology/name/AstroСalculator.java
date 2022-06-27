@@ -88,8 +88,8 @@ public class AstroСalculator {
         resultTable.put(5, getFinalNumber(day));
         resultTable.put(6, getFinalNumber(resultTable.get(4)+resultTable.get(5)));
         resultTable.put(7, getFinalNumber(resultTable.get(4)+resultTable.get(3)));
-        resultTable.put(8, getFinalNumber(Math.abs(month-day)));
-        resultTable.put(9, getFinalNumber(Math.abs(year-month)));
+        resultTable.put(8, getFinalNumber(Math.abs(resultTable.get(5)-resultTable.get(4))));
+        resultTable.put(9, getFinalNumber(Math.abs(resultTable.get(3)-resultTable.get(4))));
         return  new InfoAboutBirthday(resultTable);
     }
 
