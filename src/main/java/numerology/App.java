@@ -10,8 +10,8 @@ import java.util.HashMap;
 public class App {
     @SneakyThrows
     public static void main(String[] args) {
-        String fullName = "Каурова Настя Сергеевна";
-        String birthday = "03.04.1994";
+        String fullName = "Макаров Тимур Александрович";
+        String birthday = "17.05.2021";
         HashMap<String, Integer> dictionary = Reader.getDictionary();
         InfoAboutName infoAboutName = AstroСalculator.getMagicNames(fullName, dictionary);
         System.out.println("полное имя: " + fullName);
