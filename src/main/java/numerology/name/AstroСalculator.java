@@ -86,11 +86,38 @@ public class AstroСalculator {
         resultTable.put(3, getFinalNumber(year));
         resultTable.put(4, getFinalNumber(month));
         resultTable.put(5, getFinalNumber(day));
-        resultTable.put(6, getFinalNumber(resultTable.get(4)+resultTable.get(5)));
-        resultTable.put(7, getFinalNumber(resultTable.get(4)+resultTable.get(3)));
-        resultTable.put(8, getFinalNumber(Math.abs(resultTable.get(5)-resultTable.get(4))));
-        resultTable.put(9, getFinalNumber(Math.abs(resultTable.get(3)-resultTable.get(4))));
-        return  new InfoAboutBirthday(resultTable);
+        resultTable.put(6, getFinalNumber(resultTable.get(4) + resultTable.get(5)));
+        resultTable.put(7, getFinalNumber(resultTable.get(4) + resultTable.get(3)));
+        resultTable.put(8, getFinalNumber(Math.abs(resultTable.get(5) - resultTable.get(4))));
+        resultTable.put(9, getFinalNumber(Math.abs(resultTable.get(3) - resultTable.get(4))));
+        Map<String, Integer> quality = new HashMap<>();
+        quality.put("+", getFinalNumber(resultTable.get(6) + resultTable.get(7)));
+        quality.put("-", getFinalNumber(Math.abs(resultTable.get(8) - resultTable.get(9))));
+
+        AssemblyPoint fire = new AssemblyPoint("Огонь", resultTable.get(1) * resultTable.get(5), getFinalNumber(resultTable.get(1) * resultTable.get(5)));
+        AssemblyPoint water = new AssemblyPoint("Вода", resultTable.get(1) * resultTable.get(6), getFinalNumber(resultTable.get(1) * resultTable.get(6)));
+        AssemblyPoint air = new AssemblyPoint("Воздух", resultTable.get(4) * resultTable.get(8), getFinalNumber(resultTable.get(4) * resultTable.get(8)));
+        AssemblyPoint ground = new AssemblyPoint("Земля", resultTable.get(3) * resultTable.get(7), getFinalNumber(resultTable.get(3) * resultTable.get(7)));
+        AssemblyPoint wood = new AssemblyPoint("Дерево", water.getFinalNumber() * ground.getFinalNumber(), getFinalNumber(water.getFinalNumber() * ground.getFinalNumber()));
+        AssemblyPoint iron = new AssemblyPoint("Металл", fire.getFinalNumber() * air.getFinalNumber(), getFinalNumber(fire.getFinalNumber() * air.getFinalNumber()));
+        AssemblyPoint gift = new AssemblyPoint("Дар", quality.get("+") * quality.get("-"), getFinalNumber(quality.get("+") * quality.get("-")));
+
+        List<AssemblyPoint> assemblyPoint = new ArrayList<>() {{
+            add(fire);
+            add(water);
+            add(air);
+            add(ground);
+            add(wood);
+            add(iron);
+            add(gift);
+        }};
+
+
+        return InfoAboutBirthday.builder()
+                .table(resultTable)
+                .quality(quality)
+                .assemblyPoint(assemblyPoint)
+                .build();
     }
 
 

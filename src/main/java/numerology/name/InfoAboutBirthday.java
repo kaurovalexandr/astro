@@ -7,10 +7,13 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.Map;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class InfoAboutBirthday {
-    private Map<Integer,Integer> table;
+    private Map<Integer, Integer> table;
+    private Map<String, Integer> quality;
+    private List<AssemblyPoint> assemblyPoint;
 }
