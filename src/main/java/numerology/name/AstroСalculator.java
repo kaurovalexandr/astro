@@ -4,6 +4,14 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class AstroСalculator {
+
+    public static int getMission(String timeBirth, int nineMagicNumber){
+        int valueTimeBirth = Integer.valueOf(timeBirth.replace(":",""));
+        int finalValue = getFinalNumber(valueTimeBirth);
+        String valueMission = String.format("%.2f", (float)(finalValue)/nineMagicNumber);
+        return getFinalNumber(Integer.valueOf(valueMission.replace(",","")));
+    }
+
     public static InfoAboutName getMagicNames(String fullName, HashMap<String, Integer> dictionary) {
 
         List<MagicName> magicNames = Arrays.stream(fullName.split(" ")).map(name -> {

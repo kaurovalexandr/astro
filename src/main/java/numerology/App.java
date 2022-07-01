@@ -44,7 +44,7 @@ public class App {
         infoAboutBirthday.getAssemblyPoint().forEach(x ->
                 System.out.println(x.getName() + "\t" + x.getFullNumber() + "\t" + x.getFinalNumber()));
         System.out.println();
-
+        System.out.println("Миссия "+AstroСalculator.getMission("17:30",infoAboutBirthday.getTable().get(9)));
 
     }
 
